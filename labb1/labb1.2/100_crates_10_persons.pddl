@@ -167,16 +167,6 @@
 	p9 - person
 	p10 - person
 	p11 - person
-	p12 - person
-	p13 - person
-	p14 - person
-	p15 - person
-	p16 - person
-	p17 - person
-	p18 - person
-	p19 - person
-	p20 - person
-	p21 - person
 )
 (:init
 	(at h depot)
@@ -192,16 +182,6 @@
 	(at p9 loc50)
 	(at p10 loc19)
 	(at p11 loc49)
-	(at p12 loc50)
-	(at p13 loc19)
-	(at p14 loc49)
-	(at p15 loc50)
-	(at p16 loc19)
-	(at p17 loc49)
-	(at p18 loc50)
-	(at p19 loc19)
-	(at p20 loc49)
-	(at p21 loc50)
 	(at crate1 depot)
 	(at crate2 depot)
 	(at crate3 depot)
@@ -406,26 +386,16 @@
 	(crate-content crate101 food)
 )
 (:goal (and (at h depot)
-	(person-got-help p1 food)
-    (person-got-help p2 food)
+	(person-got-help p1 medicin)
+    (person-got-help p2 medicin)
     (person-got-help p3 food)
-    (person-got-help p4 food)
+    (person-got-help p4 medicin)
     (person-got-help p5 medicin)
     (person-got-help p6 food)
     (person-got-help p7 medicin)
     (person-got-help p8 medicin)
     (person-got-help p9 food)
-    (person-got-help p10 food)
+    (person-got-help p10 medicin)
     (person-got-help p11 medicin)
-    (person-got-help p12 food)
-    (person-got-help p13 medicin)
-    (person-got-help p14 food)
-    (person-got-help p15 food)
-    (person-got-help p16 food)
-    (person-got-help p17 medicin)
-    (person-got-help p18 food)
-    (person-got-help p19 medicin)
-    (person-got-help p20 medicin)
-    (person-got-help p21 food)
 	))
 )

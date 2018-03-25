@@ -155,7 +155,7 @@
 	crate100 - crate
 	crate101 - crate
 	food - content
-	medicine - content
+	medicin - content
 	p1 - person
 	p2 - person
 	p3 - person
