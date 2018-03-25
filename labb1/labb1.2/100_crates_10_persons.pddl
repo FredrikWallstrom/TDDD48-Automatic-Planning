@@ -159,6 +159,14 @@
 	p1 - person
 	p2 - person
 	p3 - person
+	p4 - person
+	p5 - person
+	p6 - person
+	p7 - person
+	p8 - person
+	p9 - person
+	p10 - person
+	p11 - person
 )
 (:init
 	(at h depot)
@@ -166,6 +174,14 @@
 	(at p1 loc19)
 	(at p2 loc49)
 	(at p3 loc50)
+	(at p4 loc19)
+	(at p5 loc49)
+	(at p6 loc50)
+	(at p7 loc19)
+	(at p8 loc49)
+	(at p9 loc50)
+	(at p10 loc19)
+	(at p11 loc49)
 	(at crate1 depot)
 	(at crate2 depot)
 	(at crate3 depot)
@@ -373,5 +389,13 @@
 	(person-got-help p1 medicin)
     (person-got-help p2 medicin)
     (person-got-help p3 food)
+    (person-got-help p4 medicin)
+    (person-got-help p5 medicin)
+    (person-got-help p6 food)
+    (person-got-help p7 medicin)
+    (person-got-help p8 medicin)
+    (person-got-help p9 food)
+    (person-got-help p10 medicin)
+    (person-got-help p11 medicin)
 	))
 )

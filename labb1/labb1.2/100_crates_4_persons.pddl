@@ -159,6 +159,7 @@
 	p1 - person
 	p2 - person
 	p3 - person
+	p4 - person
 )
 (:init
 	(at h depot)
@@ -166,6 +167,7 @@
 	(at p1 loc19)
 	(at p2 loc49)
 	(at p3 loc50)
+	(at p4 loc19)
 	(at crate1 depot)
 	(at crate2 depot)
 	(at crate3 depot)
@@ -373,5 +375,6 @@
 	(person-got-help p1 medicin)
     (person-got-help p2 medicin)
     (person-got-help p3 food)
+    (person-got-help p4 medicin)
 	))
 )
