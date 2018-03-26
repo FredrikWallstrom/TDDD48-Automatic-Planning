@@ -1,4 +1,4 @@
-(define (problem bigger_problem)
+(define (problem 9_crates_9_persons)
 	
   (:domain lab1.2)
 

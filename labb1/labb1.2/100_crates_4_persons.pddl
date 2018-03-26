@@ -1,4 +1,4 @@
-(define (problem alot_bigger_problem)
+(define (problem 100_crates_4_persons)
 (:domain lab1.2)
 (:objects
 	h - helicopter
