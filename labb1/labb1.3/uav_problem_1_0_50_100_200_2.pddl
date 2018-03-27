@@ -1,0 +1,968 @@
+(define (problem crates_200_persons_100)
+(:domain lab13)
+(:objects
+	uav1 - helicopter
+	depot - location
+	loc1 - location
+	loc2 - location
+	loc3 - location
+	loc4 - location
+	loc5 - location
+	loc6 - location
+	loc7 - location
+	loc8 - location
+	loc9 - location
+	loc10 - location
+	loc11 - location
+	loc12 - location
+	loc13 - location
+	loc14 - location
+	loc15 - location
+	loc16 - location
+	loc17 - location
+	loc18 - location
+	loc19 - location
+	loc20 - location
+	loc21 - location
+	loc22 - location
+	loc23 - location
+	loc24 - location
+	loc25 - location
+	loc26 - location
+	loc27 - location
+	loc28 - location
+	loc29 - location
+	loc30 - location
+	loc31 - location
+	loc32 - location
+	loc33 - location
+	loc34 - location
+	loc35 - location
+	loc36 - location
+	loc37 - location
+	loc38 - location
+	loc39 - location
+	loc40 - location
+	loc41 - location
+	loc42 - location
+	loc43 - location
+	loc44 - location
+	loc45 - location
+	loc46 - location
+	loc47 - location
+	loc48 - location
+	loc49 - location
+	loc50 - location
+	crate1 - crate
+	crate2 - crate
+	crate3 - crate
+	crate4 - crate
+	crate5 - crate
+	crate6 - crate
+	crate7 - crate
+	crate8 - crate
+	crate9 - crate
+	crate10 - crate
+	crate11 - crate
+	crate12 - crate
+	crate13 - crate
+	crate14 - crate
+	crate15 - crate
+	crate16 - crate
+	crate17 - crate
+	crate18 - crate
+	crate19 - crate
+	crate20 - crate
+	crate21 - crate
+	crate22 - crate
+	crate23 - crate
+	crate24 - crate
+	crate25 - crate
+	crate26 - crate
+	crate27 - crate
+	crate28 - crate
+	crate29 - crate
+	crate30 - crate
+	crate31 - crate
+	crate32 - crate
+	crate33 - crate
+	crate34 - crate
+	crate35 - crate
+	crate36 - crate
+	crate37 - crate
+	crate38 - crate
+	crate39 - crate
+	crate40 - crate
+	crate41 - crate
+	crate42 - crate
+	crate43 - crate
+	crate44 - crate
+	crate45 - crate
+	crate46 - crate
+	crate47 - crate
+	crate48 - crate
+	crate49 - crate
+	crate50 - crate
+	crate51 - crate
+	crate52 - crate
+	crate53 - crate
+	crate54 - crate
+	crate55 - crate
+	crate56 - crate
+	crate57 - crate
+	crate58 - crate
+	crate59 - crate
+	crate60 - crate
+	crate61 - crate
+	crate62 - crate
+	crate63 - crate
+	crate64 - crate
+	crate65 - crate
+	crate66 - crate
+	crate67 - crate
+	crate68 - crate
+	crate69 - crate
+	crate70 - crate
+	crate71 - crate
+	crate72 - crate
+	crate73 - crate
+	crate74 - crate
+	crate75 - crate
+	crate76 - crate
+	crate77 - crate
+	crate78 - crate
+	crate79 - crate
+	crate80 - crate
+	crate81 - crate
+	crate82 - crate
+	crate83 - crate
+	crate84 - crate
+	crate85 - crate
+	crate86 - crate
+	crate87 - crate
+	crate88 - crate
+	crate89 - crate
+	crate90 - crate
+	crate91 - crate
+	crate92 - crate
+	crate93 - crate
+	crate94 - crate
+	crate95 - crate
+	crate96 - crate
+	crate97 - crate
+	crate98 - crate
+	crate99 - crate
+	crate100 - crate
+	crate101 - crate
+	crate102 - crate
+	crate103 - crate
+	crate104 - crate
+	crate105 - crate
+	crate106 - crate
+	crate107 - crate
+	crate108 - crate
+	crate109 - crate
+	crate110 - crate
+	crate111 - crate
+	crate112 - crate
+	crate113 - crate
+	crate114 - crate
+	crate115 - crate
+	crate116 - crate
+	crate117 - crate
+	crate118 - crate
+	crate119 - crate
+	crate120 - crate
+	crate121 - crate
+	crate122 - crate
+	crate123 - crate
+	crate124 - crate
+	crate125 - crate
+	crate126 - crate
+	crate127 - crate
+	crate128 - crate
+	crate129 - crate
+	crate130 - crate
+	crate131 - crate
+	crate132 - crate
+	crate133 - crate
+	crate134 - crate
+	crate135 - crate
+	crate136 - crate
+	crate137 - crate
+	crate138 - crate
+	crate139 - crate
+	crate140 - crate
+	crate141 - crate
+	crate142 - crate
+	crate143 - crate
+	crate144 - crate
+	crate145 - crate
+	crate146 - crate
+	crate147 - crate
+	crate148 - crate
+	crate149 - crate
+	crate150 - crate
+	crate151 - crate
+	crate152 - crate
+	crate153 - crate
+	crate154 - crate
+	crate155 - crate
+	crate156 - crate
+	crate157 - crate
+	crate158 - crate
+	crate159 - crate
+	crate160 - crate
+	crate161 - crate
+	crate162 - crate
+	crate163 - crate
+	crate164 - crate
+	crate165 - crate
+	crate166 - crate
+	crate167 - crate
+	crate168 - crate
+	crate169 - crate
+	crate170 - crate
+	crate171 - crate
+	crate172 - crate
+	crate173 - crate
+	crate174 - crate
+	crate175 - crate
+	crate176 - crate
+	crate177 - crate
+	crate178 - crate
+	crate179 - crate
+	crate180 - crate
+	crate181 - crate
+	crate182 - crate
+	crate183 - crate
+	crate184 - crate
+	crate185 - crate
+	crate186 - crate
+	crate187 - crate
+	crate188 - crate
+	crate189 - crate
+	crate190 - crate
+	crate191 - crate
+	crate192 - crate
+	crate193 - crate
+	crate194 - crate
+	crate195 - crate
+	crate196 - crate
+	crate197 - crate
+	crate198 - crate
+	crate199 - crate
+	crate200 - crate
+	food - content
+	medicine - content
+	person1 - person
+	person2 - person
+	person3 - person
+	person4 - person
+	person5 - person
+	person6 - person
+	person7 - person
+	person8 - person
+	person9 - person
+	person10 - person
+	person11 - person
+	person12 - person
+	person13 - person
+	person14 - person
+	person15 - person
+	person16 - person
+	person17 - person
+	person18 - person
+	person19 - person
+	person20 - person
+	person21 - person
+	person22 - person
+	person23 - person
+	person24 - person
+	person25 - person
+	person26 - person
+	person27 - person
+	person28 - person
+	person29 - person
+	person30 - person
+	person31 - person
+	person32 - person
+	person33 - person
+	person34 - person
+	person35 - person
+	person36 - person
+	person37 - person
+	person38 - person
+	person39 - person
+	person40 - person
+	person41 - person
+	person42 - person
+	person43 - person
+	person44 - person
+	person45 - person
+	person46 - person
+	person47 - person
+	person48 - person
+	person49 - person
+	person50 - person
+	person51 - person
+	person52 - person
+	person53 - person
+	person54 - person
+	person55 - person
+	person56 - person
+	person57 - person
+	person58 - person
+	person59 - person
+	person60 - person
+	person61 - person
+	person62 - person
+	person63 - person
+	person64 - person
+	person65 - person
+	person66 - person
+	person67 - person
+	person68 - person
+	person69 - person
+	person70 - person
+	person71 - person
+	person72 - person
+	person73 - person
+	person74 - person
+	person75 - person
+	person76 - person
+	person77 - person
+	person78 - person
+	person79 - person
+	person80 - person
+	person81 - person
+	person82 - person
+	person83 - person
+	person84 - person
+	person85 - person
+	person86 - person
+	person87 - person
+	person88 - person
+	person89 - person
+	person90 - person
+	person91 - person
+	person92 - person
+	person93 - person
+	person94 - person
+	person95 - person
+	person96 - person
+	person97 - person
+	person98 - person
+	person99 - person
+	person100 - person
+)
+(:init
+
+(at uav1 depot)
+(helicopter-empty uav1)
+(crate-content crate1 medicine)
+(crate-content crate2 food)
+(crate-content crate3 medicine)
+(crate-content crate4 food)
+(crate-content crate5 medicine)
+(crate-content crate6 medicine)
+(crate-content crate7 medicine)
+(crate-content crate8 food)
+(crate-content crate9 food)
+(crate-content crate10 medicine)
+(crate-content crate11 medicine)
+(crate-content crate12 food)
+(crate-content crate13 medicine)
+(crate-content crate14 food)
+(crate-content crate15 food)
+(crate-content crate16 medicine)
+(crate-content crate17 food)
+(crate-content crate18 food)
+(crate-content crate19 medicine)
+(crate-content crate20 food)
+(crate-content crate21 food)
+(crate-content crate22 food)
+(crate-content crate23 medicine)
+(crate-content crate24 medicine)
+(crate-content crate25 food)
+(crate-content crate26 food)
+(crate-content crate27 medicine)
+(crate-content crate28 medicine)
+(crate-content crate29 medicine)
+(crate-content crate30 medicine)
+(crate-content crate31 medicine)
+(crate-content crate32 medicine)
+(crate-content crate33 food)
+(crate-content crate34 food)
+(crate-content crate35 medicine)
+(crate-content crate36 medicine)
+(crate-content crate37 food)
+(crate-content crate38 food)
+(crate-content crate39 food)
+(crate-content crate40 food)
+(crate-content crate41 medicine)
+(crate-content crate42 food)
+(crate-content crate43 food)
+(crate-content crate44 food)
+(crate-content crate45 food)
+(crate-content crate46 food)
+(crate-content crate47 food)
+(crate-content crate48 medicine)
+(crate-content crate49 medicine)
+(crate-content crate50 medicine)
+(crate-content crate51 medicine)
+(crate-content crate52 food)
+(crate-content crate53 food)
+(crate-content crate54 medicine)
+(crate-content crate55 food)
+(crate-content crate56 medicine)
+(crate-content crate57 medicine)
+(crate-content crate58 medicine)
+(crate-content crate59 food)
+(crate-content crate60 medicine)
+(crate-content crate61 medicine)
+(crate-content crate62 food)
+(crate-content crate63 medicine)
+(crate-content crate64 medicine)
+(crate-content crate65 medicine)
+(crate-content crate66 medicine)
+(crate-content crate67 medicine)
+(crate-content crate68 food)
+(crate-content crate69 medicine)
+(crate-content crate70 food)
+(crate-content crate71 food)
+(crate-content crate72 food)
+(crate-content crate73 medicine)
+(crate-content crate74 food)
+(crate-content crate75 medicine)
+(crate-content crate76 food)
+(crate-content crate77 medicine)
+(crate-content crate78 medicine)
+(crate-content crate79 medicine)
+(crate-content crate80 medicine)
+(crate-content crate81 food)
+(crate-content crate82 food)
+(crate-content crate83 medicine)
+(crate-content crate84 medicine)
+(crate-content crate85 medicine)
+(crate-content crate86 food)
+(crate-content crate87 food)
+(crate-content crate88 medicine)
+(crate-content crate89 food)
+(crate-content crate90 medicine)
+(crate-content crate91 medicine)
+(crate-content crate92 medicine)
+(crate-content crate93 medicine)
+(crate-content crate94 food)
+(crate-content crate95 food)
+(crate-content crate96 food)
+(crate-content crate97 food)
+(crate-content crate98 food)
+(crate-content crate99 medicine)
+(crate-content crate100 food)
+(crate-content crate101 medicine)
+(crate-content crate102 food)
+(crate-content crate103 food)
+(crate-content crate104 medicine)
+(crate-content crate105 food)
+(crate-content crate106 medicine)
+(crate-content crate107 food)
+(crate-content crate108 medicine)
+(crate-content crate109 medicine)
+(crate-content crate110 food)
+(crate-content crate111 medicine)
+(crate-content crate112 medicine)
+(crate-content crate113 medicine)
+(crate-content crate114 medicine)
+(crate-content crate115 food)
+(crate-content crate116 medicine)
+(crate-content crate117 medicine)
+(crate-content crate118 medicine)
+(crate-content crate119 medicine)
+(crate-content crate120 medicine)
+(crate-content crate121 food)
+(crate-content crate122 food)
+(crate-content crate123 food)
+(crate-content crate124 food)
+(crate-content crate125 food)
+(crate-content crate126 food)
+(crate-content crate127 medicine)
+(crate-content crate128 food)
+(crate-content crate129 food)
+(crate-content crate130 food)
+(crate-content crate131 medicine)
+(crate-content crate132 food)
+(crate-content crate133 medicine)
+(crate-content crate134 food)
+(crate-content crate135 food)
+(crate-content crate136 food)
+(crate-content crate137 food)
+(crate-content crate138 medicine)
+(crate-content crate139 medicine)
+(crate-content crate140 food)
+(crate-content crate141 medicine)
+(crate-content crate142 food)
+(crate-content crate143 medicine)
+(crate-content crate144 food)
+(crate-content crate145 medicine)
+(crate-content crate146 food)
+(crate-content crate147 food)
+(crate-content crate148 medicine)
+(crate-content crate149 food)
+(crate-content crate150 medicine)
+(crate-content crate151 medicine)
+(crate-content crate152 medicine)
+(crate-content crate153 medicine)
+(crate-content crate154 medicine)
+(crate-content crate155 food)
+(crate-content crate156 medicine)
+(crate-content crate157 food)
+(crate-content crate158 medicine)
+(crate-content crate159 food)
+(crate-content crate160 medicine)
+(crate-content crate161 food)
+(crate-content crate162 food)
+(crate-content crate163 food)
+(crate-content crate164 food)
+(crate-content crate165 food)
+(crate-content crate166 medicine)
+(crate-content crate167 medicine)
+(crate-content crate168 medicine)
+(crate-content crate169 food)
+(crate-content crate170 medicine)
+(crate-content crate171 food)
+(crate-content crate172 medicine)
+(crate-content crate173 food)
+(crate-content crate174 food)
+(crate-content crate175 medicine)
+(crate-content crate176 food)
+(crate-content crate177 medicine)
+(crate-content crate178 food)
+(crate-content crate179 food)
+(crate-content crate180 medicine)
+(crate-content crate181 medicine)
+(crate-content crate182 medicine)
+(crate-content crate183 food)
+(crate-content crate184 medicine)
+(crate-content crate185 food)
+(crate-content crate186 medicine)
+(crate-content crate187 food)
+(crate-content crate188 medicine)
+(crate-content crate189 medicine)
+(crate-content crate190 food)
+(crate-content crate191 medicine)
+(crate-content crate192 food)
+(crate-content crate193 food)
+(crate-content crate194 food)
+(crate-content crate195 medicine)
+(crate-content crate196 food)
+(crate-content crate197 food)
+(crate-content crate198 medicine)
+(crate-content crate199 food)
+(crate-content crate200 medicine)
+(at crate1 depot)
+(at crate2 depot)
+(at crate3 depot)
+(at crate4 depot)
+(at crate5 depot)
+(at crate6 depot)
+(at crate7 depot)
+(at crate8 depot)
+(at crate9 depot)
+(at crate10 depot)
+(at crate11 depot)
+(at crate12 depot)
+(at crate13 depot)
+(at crate14 depot)
+(at crate15 depot)
+(at crate16 depot)
+(at crate17 depot)
+(at crate18 depot)
+(at crate19 depot)
+(at crate20 depot)
+(at crate21 depot)
+(at crate22 depot)
+(at crate23 depot)
+(at crate24 depot)
+(at crate25 depot)
+(at crate26 depot)
+(at crate27 depot)
+(at crate28 depot)
+(at crate29 depot)
+(at crate30 depot)
+(at crate31 depot)
+(at crate32 depot)
+(at crate33 depot)
+(at crate34 depot)
+(at crate35 depot)
+(at crate36 depot)
+(at crate37 depot)
+(at crate38 depot)
+(at crate39 depot)
+(at crate40 depot)
+(at crate41 depot)
+(at crate42 depot)
+(at crate43 depot)
+(at crate44 depot)
+(at crate45 depot)
+(at crate46 depot)
+(at crate47 depot)
+(at crate48 depot)
+(at crate49 depot)
+(at crate50 depot)
+(at crate51 depot)
+(at crate52 depot)
+(at crate53 depot)
+(at crate54 depot)
+(at crate55 depot)
+(at crate56 depot)
+(at crate57 depot)
+(at crate58 depot)
+(at crate59 depot)
+(at crate60 depot)
+(at crate61 depot)
+(at crate62 depot)
+(at crate63 depot)
+(at crate64 depot)
+(at crate65 depot)
+(at crate66 depot)
+(at crate67 depot)
+(at crate68 depot)
+(at crate69 depot)
+(at crate70 depot)
+(at crate71 depot)
+(at crate72 depot)
+(at crate73 depot)
+(at crate74 depot)
+(at crate75 depot)
+(at crate76 depot)
+(at crate77 depot)
+(at crate78 depot)
+(at crate79 depot)
+(at crate80 depot)
+(at crate81 depot)
+(at crate82 depot)
+(at crate83 depot)
+(at crate84 depot)
+(at crate85 depot)
+(at crate86 depot)
+(at crate87 depot)
+(at crate88 depot)
+(at crate89 depot)
+(at crate90 depot)
+(at crate91 depot)
+(at crate92 depot)
+(at crate93 depot)
+(at crate94 depot)
+(at crate95 depot)
+(at crate96 depot)
+(at crate97 depot)
+(at crate98 depot)
+(at crate99 depot)
+(at crate100 depot)
+(at crate101 depot)
+(at crate102 depot)
+(at crate103 depot)
+(at crate104 depot)
+(at crate105 depot)
+(at crate106 depot)
+(at crate107 depot)
+(at crate108 depot)
+(at crate109 depot)
+(at crate110 depot)
+(at crate111 depot)
+(at crate112 depot)
+(at crate113 depot)
+(at crate114 depot)
+(at crate115 depot)
+(at crate116 depot)
+(at crate117 depot)
+(at crate118 depot)
+(at crate119 depot)
+(at crate120 depot)
+(at crate121 depot)
+(at crate122 depot)
+(at crate123 depot)
+(at crate124 depot)
+(at crate125 depot)
+(at crate126 depot)
+(at crate127 depot)
+(at crate128 depot)
+(at crate129 depot)
+(at crate130 depot)
+(at crate131 depot)
+(at crate132 depot)
+(at crate133 depot)
+(at crate134 depot)
+(at crate135 depot)
+(at crate136 depot)
+(at crate137 depot)
+(at crate138 depot)
+(at crate139 depot)
+(at crate140 depot)
+(at crate141 depot)
+(at crate142 depot)
+(at crate143 depot)
+(at crate144 depot)
+(at crate145 depot)
+(at crate146 depot)
+(at crate147 depot)
+(at crate148 depot)
+(at crate149 depot)
+(at crate150 depot)
+(at crate151 depot)
+(at crate152 depot)
+(at crate153 depot)
+(at crate154 depot)
+(at crate155 depot)
+(at crate156 depot)
+(at crate157 depot)
+(at crate158 depot)
+(at crate159 depot)
+(at crate160 depot)
+(at crate161 depot)
+(at crate162 depot)
+(at crate163 depot)
+(at crate164 depot)
+(at crate165 depot)
+(at crate166 depot)
+(at crate167 depot)
+(at crate168 depot)
+(at crate169 depot)
+(at crate170 depot)
+(at crate171 depot)
+(at crate172 depot)
+(at crate173 depot)
+(at crate174 depot)
+(at crate175 depot)
+(at crate176 depot)
+(at crate177 depot)
+(at crate178 depot)
+(at crate179 depot)
+(at crate180 depot)
+(at crate181 depot)
+(at crate182 depot)
+(at crate183 depot)
+(at crate184 depot)
+(at crate185 depot)
+(at crate186 depot)
+(at crate187 depot)
+(at crate188 depot)
+(at crate189 depot)
+(at crate190 depot)
+(at crate191 depot)
+(at crate192 depot)
+(at crate193 depot)
+(at crate194 depot)
+(at crate195 depot)
+(at crate196 depot)
+(at crate197 depot)
+(at crate198 depot)
+(at crate199 depot)
+(at crate200 depot)
+(at person1 loc10)
+(at person2 loc10)
+(at person3 loc10)
+(at person4 loc10)
+(at person5 loc10)
+(at person6 loc10)
+(at person7 loc10)
+(at person8 loc10)
+(at person9 loc10)
+(at person10 loc10)
+(at person11 loc10)
+(at person12 loc10)
+(at person13 loc10)
+(at person14 loc10)
+(at person15 loc10)
+(at person16 loc10)
+(at person17 loc10)
+(at person18 loc10)
+(at person19 loc10)
+(at person20 loc10)
+(at person21 loc10)
+(at person22 loc10)
+(at person23 loc10)
+(at person24 loc10)
+(at person25 loc10)
+(at person26 loc10)
+(at person27 loc10)
+(at person28 loc10)
+(at person29 loc10)
+(at person30 loc10)
+(at person31 loc10)
+(at person32 loc10)
+(at person33 loc10)
+(at person34 loc10)
+(at person35 loc10)
+(at person36 loc10)
+(at person37 loc10)
+(at person38 loc10)
+(at person39 loc10)
+(at person40 loc10)
+(at person41 loc10)
+(at person42 loc10)
+(at person43 loc10)
+(at person44 loc10)
+(at person45 loc10)
+(at person46 loc10)
+(at person47 loc10)
+(at person48 loc10)
+(at person49 loc10)
+(at person50 loc10)
+(at person51 loc10)
+(at person52 loc10)
+(at person53 loc10)
+(at person54 loc10)
+(at person55 loc10)
+(at person56 loc10)
+(at person57 loc10)
+(at person58 loc10)
+(at person59 loc10)
+(at person60 loc10)
+(at person61 loc10)
+(at person62 loc10)
+(at person63 loc10)
+(at person64 loc10)
+(at person65 loc10)
+(at person66 loc10)
+(at person67 loc10)
+(at person68 loc10)
+(at person69 loc10)
+(at person70 loc10)
+(at person71 loc10)
+(at person72 loc10)
+(at person73 loc10)
+(at person74 loc10)
+(at person75 loc10)
+(at person76 loc10)
+(at person77 loc10)
+(at person78 loc10)
+(at person79 loc10)
+(at person80 loc10)
+(at person81 loc10)
+(at person82 loc10)
+(at person83 loc10)
+(at person84 loc10)
+(at person85 loc10)
+(at person86 loc10)
+(at person87 loc10)
+(at person88 loc10)
+(at person89 loc10)
+(at person90 loc10)
+(at person91 loc10)
+(at person92 loc10)
+(at person93 loc10)
+(at person94 loc10)
+(at person95 loc10)
+(at person96 loc10)
+(at person97 loc10)
+(at person98 loc10)
+(at person99 loc10)
+(at person100 loc10)
+)
+(:goal (and
+
+(at uav1 depot)
+(person-got-help person1 medicine)
+(person-got-help person2 medicine)
+(person-got-help person3 medicine)
+(person-got-help person4 medicine)
+(person-got-help person5 medicine)
+(person-got-help person6 medicine)
+(person-got-help person7 medicine)
+(person-got-help person8 medicine)
+(person-got-help person9 medicine)
+(person-got-help person10 medicine)
+(person-got-help person11 medicine)
+(person-got-help person12 medicine)
+(person-got-help person13 medicine)
+(person-got-help person14 medicine)
+(person-got-help person15 medicine)
+(person-got-help person16 medicine)
+(person-got-help person17 medicine)
+(person-got-help person18 medicine)
+(person-got-help person19 medicine)
+(person-got-help person20 medicine)
+(person-got-help person21 medicine)
+(person-got-help person22 medicine)
+(person-got-help person23 medicine)
+(person-got-help person24 medicine)
+(person-got-help person25 medicine)
+(person-got-help person26 medicine)
+(person-got-help person27 medicine)
+(person-got-help person28 medicine)
+(person-got-help person29 medicine)
+(person-got-help person30 medicine)
+(person-got-help person31 medicine)
+(person-got-help person32 medicine)
+(person-got-help person33 medicine)
+(person-got-help person34 medicine)
+(person-got-help person35 medicine)
+(person-got-help person36 medicine)
+(person-got-help person37 medicine)
+(person-got-help person38 medicine)
+(person-got-help person39 medicine)
+(person-got-help person40 medicine)
+(person-got-help person41 medicine)
+(person-got-help person42 medicine)
+(person-got-help person43 medicine)
+(person-got-help person44 medicine)
+(person-got-help person45 medicine)
+(person-got-help person46 medicine)
+(person-got-help person47 medicine)
+(person-got-help person48 medicine)
+(person-got-help person49 medicine)
+(person-got-help person50 medicine)
+(person-got-help person1 food)
+(person-got-help person2 food)
+(person-got-help person3 food)
+(person-got-help person4 food)
+(person-got-help person5 food)
+(person-got-help person6 food)
+(person-got-help person7 food)
+(person-got-help person8 food)
+(person-got-help person9 food)
+(person-got-help person10 food)
+(person-got-help person11 food)
+(person-got-help person12 food)
+(person-got-help person13 food)
+(person-got-help person14 food)
+(person-got-help person15 food)
+(person-got-help person16 food)
+(person-got-help person17 food)
+(person-got-help person18 food)
+(person-got-help person19 food)
+(person-got-help person20 food)
+(person-got-help person21 food)
+(person-got-help person22 food)
+(person-got-help person23 food)
+(person-got-help person24 food)
+(person-got-help person25 food)
+(person-got-help person26 food)
+(person-got-help person27 food)
+(person-got-help person28 food)
+(person-got-help person29 food)
+(person-got-help person30 food)
+(person-got-help person31 food)
+(person-got-help person32 food)
+(person-got-help person33 food)
+(person-got-help person34 food)
+(person-got-help person35 food)
+(person-got-help person36 food)
+(person-got-help person37 food)
+(person-got-help person38 food)
+(person-got-help person39 food)
+(person-got-help person40 food)
+(person-got-help person41 food)
+(person-got-help person42 food)
+(person-got-help person43 food)
+(person-got-help person44 food)
+(person-got-help person45 food)
+(person-got-help person46 food)
+(person-got-help person47 food)
+(person-got-help person48 food)
+(person-got-help person49 food)
+(person-got-help person50 food)
+	))
+)
