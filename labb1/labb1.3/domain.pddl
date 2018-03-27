@@ -1,4 +1,4 @@
-(define (domain lab1.3)
+(define (domain lab13)
 
   (:requirements 
     :typing

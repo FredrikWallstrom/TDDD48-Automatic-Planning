@@ -1,5 +1,5 @@
-(define (problem 100_crates_20_persons)
-(:domain lab1.3)
+(define (problem crates100_persons_20)
+(:domain lab13)
 (:objects
 	h - helicopter
 	depot - location
