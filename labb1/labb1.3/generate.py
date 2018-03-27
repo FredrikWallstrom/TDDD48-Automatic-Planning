@@ -250,9 +250,25 @@ f.write(")\n")
 
 f.write("(:init\n")
 
-# TODO: Initialize all facts here!
+for x in uav:
+	f.write("\n")
+	f.write("(at " + x + " depot)")
+	f.write("\n")
+	f.write("(helicopter-empty " + x + ")")
+
+for x in range(options.crates):
+	rand_content = random.randint(0,len(crate_contents)-1)
+	f.write("\n");
+	f.write("(crate-content " + crate[x] + " " + crate_contents[rand_content] + ")")
+
+
+f.write("\n");
 for x in range(options.crates):
 	f.write("(at " + crate[x] + " depot)")
+	f.write("\n");
+
+for x in range(options.persons):
+	f.write("(at " + person[x] + " " + location[10] + ")")
 	f.write("\n");
 
 f.write(")\n")
@@ -265,13 +281,17 @@ f.write("(:goal (and\n")
 # All UAVs should end up at the depot
 for x in uav:
 	f.write("\n");
+	f.write("(at " + x + " depot)")
 	# TODO: Write a goal that the UAV x is at the depot
 
+f.write("\n");
 for x in range(options.persons):
 	for y in range(len(crate_contents)):
 		if need[x][y]:
 			person_name = person[x]
 			content_name = crate_contents[y]
+			f.write("(person-got-help" + " " + person_name + " " + content_name + ")")
+			f.write("\n");
 			# TODO: write a goal that the person needs a crate
 			# with this specific content
 
