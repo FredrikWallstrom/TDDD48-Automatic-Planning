@@ -1,0 +1,1372 @@
+(define (problem uav_problem_1_0_50_500_100_2)
+(:domain uav-domain)
+(:objects
+	uav1 - helicopter
+	depot - location
+	loc1 - location
+	loc2 - location
+	loc3 - location
+	loc4 - location
+	loc5 - location
+	loc6 - location
+	loc7 - location
+	loc8 - location
+	loc9 - location
+	loc10 - location
+	loc11 - location
+	loc12 - location
+	loc13 - location
+	loc14 - location
+	loc15 - location
+	loc16 - location
+	loc17 - location
+	loc18 - location
+	loc19 - location
+	loc20 - location
+	loc21 - location
+	loc22 - location
+	loc23 - location
+	loc24 - location
+	loc25 - location
+	loc26 - location
+	loc27 - location
+	loc28 - location
+	loc29 - location
+	loc30 - location
+	loc31 - location
+	loc32 - location
+	loc33 - location
+	loc34 - location
+	loc35 - location
+	loc36 - location
+	loc37 - location
+	loc38 - location
+	loc39 - location
+	loc40 - location
+	loc41 - location
+	loc42 - location
+	loc43 - location
+	loc44 - location
+	loc45 - location
+	loc46 - location
+	loc47 - location
+	loc48 - location
+	loc49 - location
+	loc50 - location
+	crate1 - crate
+	crate2 - crate
+	crate3 - crate
+	crate4 - crate
+	crate5 - crate
+	crate6 - crate
+	crate7 - crate
+	crate8 - crate
+	crate9 - crate
+	crate10 - crate
+	crate11 - crate
+	crate12 - crate
+	crate13 - crate
+	crate14 - crate
+	crate15 - crate
+	crate16 - crate
+	crate17 - crate
+	crate18 - crate
+	crate19 - crate
+	crate20 - crate
+	crate21 - crate
+	crate22 - crate
+	crate23 - crate
+	crate24 - crate
+	crate25 - crate
+	crate26 - crate
+	crate27 - crate
+	crate28 - crate
+	crate29 - crate
+	crate30 - crate
+	crate31 - crate
+	crate32 - crate
+	crate33 - crate
+	crate34 - crate
+	crate35 - crate
+	crate36 - crate
+	crate37 - crate
+	crate38 - crate
+	crate39 - crate
+	crate40 - crate
+	crate41 - crate
+	crate42 - crate
+	crate43 - crate
+	crate44 - crate
+	crate45 - crate
+	crate46 - crate
+	crate47 - crate
+	crate48 - crate
+	crate49 - crate
+	crate50 - crate
+	crate51 - crate
+	crate52 - crate
+	crate53 - crate
+	crate54 - crate
+	crate55 - crate
+	crate56 - crate
+	crate57 - crate
+	crate58 - crate
+	crate59 - crate
+	crate60 - crate
+	crate61 - crate
+	crate62 - crate
+	crate63 - crate
+	crate64 - crate
+	crate65 - crate
+	crate66 - crate
+	crate67 - crate
+	crate68 - crate
+	crate69 - crate
+	crate70 - crate
+	crate71 - crate
+	crate72 - crate
+	crate73 - crate
+	crate74 - crate
+	crate75 - crate
+	crate76 - crate
+	crate77 - crate
+	crate78 - crate
+	crate79 - crate
+	crate80 - crate
+	crate81 - crate
+	crate82 - crate
+	crate83 - crate
+	crate84 - crate
+	crate85 - crate
+	crate86 - crate
+	crate87 - crate
+	crate88 - crate
+	crate89 - crate
+	crate90 - crate
+	crate91 - crate
+	crate92 - crate
+	crate93 - crate
+	crate94 - crate
+	crate95 - crate
+	crate96 - crate
+	crate97 - crate
+	crate98 - crate
+	crate99 - crate
+	crate100 - crate
+	food - content
+	medicine - content
+	person1 - person
+	person2 - person
+	person3 - person
+	person4 - person
+	person5 - person
+	person6 - person
+	person7 - person
+	person8 - person
+	person9 - person
+	person10 - person
+	person11 - person
+	person12 - person
+	person13 - person
+	person14 - person
+	person15 - person
+	person16 - person
+	person17 - person
+	person18 - person
+	person19 - person
+	person20 - person
+	person21 - person
+	person22 - person
+	person23 - person
+	person24 - person
+	person25 - person
+	person26 - person
+	person27 - person
+	person28 - person
+	person29 - person
+	person30 - person
+	person31 - person
+	person32 - person
+	person33 - person
+	person34 - person
+	person35 - person
+	person36 - person
+	person37 - person
+	person38 - person
+	person39 - person
+	person40 - person
+	person41 - person
+	person42 - person
+	person43 - person
+	person44 - person
+	person45 - person
+	person46 - person
+	person47 - person
+	person48 - person
+	person49 - person
+	person50 - person
+	person51 - person
+	person52 - person
+	person53 - person
+	person54 - person
+	person55 - person
+	person56 - person
+	person57 - person
+	person58 - person
+	person59 - person
+	person60 - person
+	person61 - person
+	person62 - person
+	person63 - person
+	person64 - person
+	person65 - person
+	person66 - person
+	person67 - person
+	person68 - person
+	person69 - person
+	person70 - person
+	person71 - person
+	person72 - person
+	person73 - person
+	person74 - person
+	person75 - person
+	person76 - person
+	person77 - person
+	person78 - person
+	person79 - person
+	person80 - person
+	person81 - person
+	person82 - person
+	person83 - person
+	person84 - person
+	person85 - person
+	person86 - person
+	person87 - person
+	person88 - person
+	person89 - person
+	person90 - person
+	person91 - person
+	person92 - person
+	person93 - person
+	person94 - person
+	person95 - person
+	person96 - person
+	person97 - person
+	person98 - person
+	person99 - person
+	person100 - person
+	person101 - person
+	person102 - person
+	person103 - person
+	person104 - person
+	person105 - person
+	person106 - person
+	person107 - person
+	person108 - person
+	person109 - person
+	person110 - person
+	person111 - person
+	person112 - person
+	person113 - person
+	person114 - person
+	person115 - person
+	person116 - person
+	person117 - person
+	person118 - person
+	person119 - person
+	person120 - person
+	person121 - person
+	person122 - person
+	person123 - person
+	person124 - person
+	person125 - person
+	person126 - person
+	person127 - person
+	person128 - person
+	person129 - person
+	person130 - person
+	person131 - person
+	person132 - person
+	person133 - person
+	person134 - person
+	person135 - person
+	person136 - person
+	person137 - person
+	person138 - person
+	person139 - person
+	person140 - person
+	person141 - person
+	person142 - person
+	person143 - person
+	person144 - person
+	person145 - person
+	person146 - person
+	person147 - person
+	person148 - person
+	person149 - person
+	person150 - person
+	person151 - person
+	person152 - person
+	person153 - person
+	person154 - person
+	person155 - person
+	person156 - person
+	person157 - person
+	person158 - person
+	person159 - person
+	person160 - person
+	person161 - person
+	person162 - person
+	person163 - person
+	person164 - person
+	person165 - person
+	person166 - person
+	person167 - person
+	person168 - person
+	person169 - person
+	person170 - person
+	person171 - person
+	person172 - person
+	person173 - person
+	person174 - person
+	person175 - person
+	person176 - person
+	person177 - person
+	person178 - person
+	person179 - person
+	person180 - person
+	person181 - person
+	person182 - person
+	person183 - person
+	person184 - person
+	person185 - person
+	person186 - person
+	person187 - person
+	person188 - person
+	person189 - person
+	person190 - person
+	person191 - person
+	person192 - person
+	person193 - person
+	person194 - person
+	person195 - person
+	person196 - person
+	person197 - person
+	person198 - person
+	person199 - person
+	person200 - person
+	person201 - person
+	person202 - person
+	person203 - person
+	person204 - person
+	person205 - person
+	person206 - person
+	person207 - person
+	person208 - person
+	person209 - person
+	person210 - person
+	person211 - person
+	person212 - person
+	person213 - person
+	person214 - person
+	person215 - person
+	person216 - person
+	person217 - person
+	person218 - person
+	person219 - person
+	person220 - person
+	person221 - person
+	person222 - person
+	person223 - person
+	person224 - person
+	person225 - person
+	person226 - person
+	person227 - person
+	person228 - person
+	person229 - person
+	person230 - person
+	person231 - person
+	person232 - person
+	person233 - person
+	person234 - person
+	person235 - person
+	person236 - person
+	person237 - person
+	person238 - person
+	person239 - person
+	person240 - person
+	person241 - person
+	person242 - person
+	person243 - person
+	person244 - person
+	person245 - person
+	person246 - person
+	person247 - person
+	person248 - person
+	person249 - person
+	person250 - person
+	person251 - person
+	person252 - person
+	person253 - person
+	person254 - person
+	person255 - person
+	person256 - person
+	person257 - person
+	person258 - person
+	person259 - person
+	person260 - person
+	person261 - person
+	person262 - person
+	person263 - person
+	person264 - person
+	person265 - person
+	person266 - person
+	person267 - person
+	person268 - person
+	person269 - person
+	person270 - person
+	person271 - person
+	person272 - person
+	person273 - person
+	person274 - person
+	person275 - person
+	person276 - person
+	person277 - person
+	person278 - person
+	person279 - person
+	person280 - person
+	person281 - person
+	person282 - person
+	person283 - person
+	person284 - person
+	person285 - person
+	person286 - person
+	person287 - person
+	person288 - person
+	person289 - person
+	person290 - person
+	person291 - person
+	person292 - person
+	person293 - person
+	person294 - person
+	person295 - person
+	person296 - person
+	person297 - person
+	person298 - person
+	person299 - person
+	person300 - person
+	person301 - person
+	person302 - person
+	person303 - person
+	person304 - person
+	person305 - person
+	person306 - person
+	person307 - person
+	person308 - person
+	person309 - person
+	person310 - person
+	person311 - person
+	person312 - person
+	person313 - person
+	person314 - person
+	person315 - person
+	person316 - person
+	person317 - person
+	person318 - person
+	person319 - person
+	person320 - person
+	person321 - person
+	person322 - person
+	person323 - person
+	person324 - person
+	person325 - person
+	person326 - person
+	person327 - person
+	person328 - person
+	person329 - person
+	person330 - person
+	person331 - person
+	person332 - person
+	person333 - person
+	person334 - person
+	person335 - person
+	person336 - person
+	person337 - person
+	person338 - person
+	person339 - person
+	person340 - person
+	person341 - person
+	person342 - person
+	person343 - person
+	person344 - person
+	person345 - person
+	person346 - person
+	person347 - person
+	person348 - person
+	person349 - person
+	person350 - person
+	person351 - person
+	person352 - person
+	person353 - person
+	person354 - person
+	person355 - person
+	person356 - person
+	person357 - person
+	person358 - person
+	person359 - person
+	person360 - person
+	person361 - person
+	person362 - person
+	person363 - person
+	person364 - person
+	person365 - person
+	person366 - person
+	person367 - person
+	person368 - person
+	person369 - person
+	person370 - person
+	person371 - person
+	person372 - person
+	person373 - person
+	person374 - person
+	person375 - person
+	person376 - person
+	person377 - person
+	person378 - person
+	person379 - person
+	person380 - person
+	person381 - person
+	person382 - person
+	person383 - person
+	person384 - person
+	person385 - person
+	person386 - person
+	person387 - person
+	person388 - person
+	person389 - person
+	person390 - person
+	person391 - person
+	person392 - person
+	person393 - person
+	person394 - person
+	person395 - person
+	person396 - person
+	person397 - person
+	person398 - person
+	person399 - person
+	person400 - person
+	person401 - person
+	person402 - person
+	person403 - person
+	person404 - person
+	person405 - person
+	person406 - person
+	person407 - person
+	person408 - person
+	person409 - person
+	person410 - person
+	person411 - person
+	person412 - person
+	person413 - person
+	person414 - person
+	person415 - person
+	person416 - person
+	person417 - person
+	person418 - person
+	person419 - person
+	person420 - person
+	person421 - person
+	person422 - person
+	person423 - person
+	person424 - person
+	person425 - person
+	person426 - person
+	person427 - person
+	person428 - person
+	person429 - person
+	person430 - person
+	person431 - person
+	person432 - person
+	person433 - person
+	person434 - person
+	person435 - person
+	person436 - person
+	person437 - person
+	person438 - person
+	person439 - person
+	person440 - person
+	person441 - person
+	person442 - person
+	person443 - person
+	person444 - person
+	person445 - person
+	person446 - person
+	person447 - person
+	person448 - person
+	person449 - person
+	person450 - person
+	person451 - person
+	person452 - person
+	person453 - person
+	person454 - person
+	person455 - person
+	person456 - person
+	person457 - person
+	person458 - person
+	person459 - person
+	person460 - person
+	person461 - person
+	person462 - person
+	person463 - person
+	person464 - person
+	person465 - person
+	person466 - person
+	person467 - person
+	person468 - person
+	person469 - person
+	person470 - person
+	person471 - person
+	person472 - person
+	person473 - person
+	person474 - person
+	person475 - person
+	person476 - person
+	person477 - person
+	person478 - person
+	person479 - person
+	person480 - person
+	person481 - person
+	person482 - person
+	person483 - person
+	person484 - person
+	person485 - person
+	person486 - person
+	person487 - person
+	person488 - person
+	person489 - person
+	person490 - person
+	person491 - person
+	person492 - person
+	person493 - person
+	person494 - person
+	person495 - person
+	person496 - person
+	person497 - person
+	person498 - person
+	person499 - person
+	person500 - person
+)
+(:init
+
+(at uav1 depot)
+(helicopter-empty uav1)
+(crate-content crate1 food)
+(crate-content crate2 food)
+(crate-content crate3 medicine)
+(crate-content crate4 food)
+(crate-content crate5 food)
+(crate-content crate6 medicine)
+(crate-content crate7 medicine)
+(crate-content crate8 food)
+(crate-content crate9 medicine)
+(crate-content crate10 food)
+(crate-content crate11 food)
+(crate-content crate12 food)
+(crate-content crate13 medicine)
+(crate-content crate14 food)
+(crate-content crate15 food)
+(crate-content crate16 medicine)
+(crate-content crate17 food)
+(crate-content crate18 medicine)
+(crate-content crate19 food)
+(crate-content crate20 medicine)
+(crate-content crate21 medicine)
+(crate-content crate22 food)
+(crate-content crate23 medicine)
+(crate-content crate24 food)
+(crate-content crate25 medicine)
+(crate-content crate26 medicine)
+(crate-content crate27 food)
+(crate-content crate28 food)
+(crate-content crate29 food)
+(crate-content crate30 food)
+(crate-content crate31 medicine)
+(crate-content crate32 medicine)
+(crate-content crate33 medicine)
+(crate-content crate34 medicine)
+(crate-content crate35 food)
+(crate-content crate36 food)
+(crate-content crate37 medicine)
+(crate-content crate38 food)
+(crate-content crate39 medicine)
+(crate-content crate40 food)
+(crate-content crate41 food)
+(crate-content crate42 food)
+(crate-content crate43 medicine)
+(crate-content crate44 food)
+(crate-content crate45 medicine)
+(crate-content crate46 medicine)
+(crate-content crate47 medicine)
+(crate-content crate48 medicine)
+(crate-content crate49 medicine)
+(crate-content crate50 medicine)
+(crate-content crate51 medicine)
+(crate-content crate52 medicine)
+(crate-content crate53 food)
+(crate-content crate54 medicine)
+(crate-content crate55 food)
+(crate-content crate56 medicine)
+(crate-content crate57 food)
+(crate-content crate58 medicine)
+(crate-content crate59 food)
+(crate-content crate60 medicine)
+(crate-content crate61 medicine)
+(crate-content crate62 medicine)
+(crate-content crate63 medicine)
+(crate-content crate64 medicine)
+(crate-content crate65 food)
+(crate-content crate66 medicine)
+(crate-content crate67 medicine)
+(crate-content crate68 medicine)
+(crate-content crate69 food)
+(crate-content crate70 medicine)
+(crate-content crate71 medicine)
+(crate-content crate72 food)
+(crate-content crate73 food)
+(crate-content crate74 food)
+(crate-content crate75 medicine)
+(crate-content crate76 medicine)
+(crate-content crate77 medicine)
+(crate-content crate78 medicine)
+(crate-content crate79 medicine)
+(crate-content crate80 food)
+(crate-content crate81 food)
+(crate-content crate82 food)
+(crate-content crate83 medicine)
+(crate-content crate84 medicine)
+(crate-content crate85 medicine)
+(crate-content crate86 medicine)
+(crate-content crate87 medicine)
+(crate-content crate88 medicine)
+(crate-content crate89 food)
+(crate-content crate90 food)
+(crate-content crate91 food)
+(crate-content crate92 medicine)
+(crate-content crate93 medicine)
+(crate-content crate94 medicine)
+(crate-content crate95 medicine)
+(crate-content crate96 food)
+(crate-content crate97 food)
+(crate-content crate98 food)
+(crate-content crate99 food)
+(crate-content crate100 food)
+(at crate1 depot)
+(at crate2 depot)
+(at crate3 depot)
+(at crate4 depot)
+(at crate5 depot)
+(at crate6 depot)
+(at crate7 depot)
+(at crate8 depot)
+(at crate9 depot)
+(at crate10 depot)
+(at crate11 depot)
+(at crate12 depot)
+(at crate13 depot)
+(at crate14 depot)
+(at crate15 depot)
+(at crate16 depot)
+(at crate17 depot)
+(at crate18 depot)
+(at crate19 depot)
+(at crate20 depot)
+(at crate21 depot)
+(at crate22 depot)
+(at crate23 depot)
+(at crate24 depot)
+(at crate25 depot)
+(at crate26 depot)
+(at crate27 depot)
+(at crate28 depot)
+(at crate29 depot)
+(at crate30 depot)
+(at crate31 depot)
+(at crate32 depot)
+(at crate33 depot)
+(at crate34 depot)
+(at crate35 depot)
+(at crate36 depot)
+(at crate37 depot)
+(at crate38 depot)
+(at crate39 depot)
+(at crate40 depot)
+(at crate41 depot)
+(at crate42 depot)
+(at crate43 depot)
+(at crate44 depot)
+(at crate45 depot)
+(at crate46 depot)
+(at crate47 depot)
+(at crate48 depot)
+(at crate49 depot)
+(at crate50 depot)
+(at crate51 depot)
+(at crate52 depot)
+(at crate53 depot)
+(at crate54 depot)
+(at crate55 depot)
+(at crate56 depot)
+(at crate57 depot)
+(at crate58 depot)
+(at crate59 depot)
+(at crate60 depot)
+(at crate61 depot)
+(at crate62 depot)
+(at crate63 depot)
+(at crate64 depot)
+(at crate65 depot)
+(at crate66 depot)
+(at crate67 depot)
+(at crate68 depot)
+(at crate69 depot)
+(at crate70 depot)
+(at crate71 depot)
+(at crate72 depot)
+(at crate73 depot)
+(at crate74 depot)
+(at crate75 depot)
+(at crate76 depot)
+(at crate77 depot)
+(at crate78 depot)
+(at crate79 depot)
+(at crate80 depot)
+(at crate81 depot)
+(at crate82 depot)
+(at crate83 depot)
+(at crate84 depot)
+(at crate85 depot)
+(at crate86 depot)
+(at crate87 depot)
+(at crate88 depot)
+(at crate89 depot)
+(at crate90 depot)
+(at crate91 depot)
+(at crate92 depot)
+(at crate93 depot)
+(at crate94 depot)
+(at crate95 depot)
+(at crate96 depot)
+(at crate97 depot)
+(at crate98 depot)
+(at crate99 depot)
+(at crate100 depot)
+(at person1 loc10)
+(at person2 loc10)
+(at person3 loc10)
+(at person4 loc10)
+(at person5 loc10)
+(at person6 loc10)
+(at person7 loc10)
+(at person8 loc10)
+(at person9 loc10)
+(at person10 loc10)
+(at person11 loc10)
+(at person12 loc10)
+(at person13 loc10)
+(at person14 loc10)
+(at person15 loc10)
+(at person16 loc10)
+(at person17 loc10)
+(at person18 loc10)
+(at person19 loc10)
+(at person20 loc10)
+(at person21 loc10)
+(at person22 loc10)
+(at person23 loc10)
+(at person24 loc10)
+(at person25 loc10)
+(at person26 loc10)
+(at person27 loc10)
+(at person28 loc10)
+(at person29 loc10)
+(at person30 loc10)
+(at person31 loc10)
+(at person32 loc10)
+(at person33 loc10)
+(at person34 loc10)
+(at person35 loc10)
+(at person36 loc10)
+(at person37 loc10)
+(at person38 loc10)
+(at person39 loc10)
+(at person40 loc10)
+(at person41 loc10)
+(at person42 loc10)
+(at person43 loc10)
+(at person44 loc10)
+(at person45 loc10)
+(at person46 loc10)
+(at person47 loc10)
+(at person48 loc10)
+(at person49 loc10)
+(at person50 loc10)
+(at person51 loc10)
+(at person52 loc10)
+(at person53 loc10)
+(at person54 loc10)
+(at person55 loc10)
+(at person56 loc10)
+(at person57 loc10)
+(at person58 loc10)
+(at person59 loc10)
+(at person60 loc10)
+(at person61 loc10)
+(at person62 loc10)
+(at person63 loc10)
+(at person64 loc10)
+(at person65 loc10)
+(at person66 loc10)
+(at person67 loc10)
+(at person68 loc10)
+(at person69 loc10)
+(at person70 loc10)
+(at person71 loc10)
+(at person72 loc10)
+(at person73 loc10)
+(at person74 loc10)
+(at person75 loc10)
+(at person76 loc10)
+(at person77 loc10)
+(at person78 loc10)
+(at person79 loc10)
+(at person80 loc10)
+(at person81 loc10)
+(at person82 loc10)
+(at person83 loc10)
+(at person84 loc10)
+(at person85 loc10)
+(at person86 loc10)
+(at person87 loc10)
+(at person88 loc10)
+(at person89 loc10)
+(at person90 loc10)
+(at person91 loc10)
+(at person92 loc10)
+(at person93 loc10)
+(at person94 loc10)
+(at person95 loc10)
+(at person96 loc10)
+(at person97 loc10)
+(at person98 loc10)
+(at person99 loc10)
+(at person100 loc10)
+(at person101 loc10)
+(at person102 loc10)
+(at person103 loc10)
+(at person104 loc10)
+(at person105 loc10)
+(at person106 loc10)
+(at person107 loc10)
+(at person108 loc10)
+(at person109 loc10)
+(at person110 loc10)
+(at person111 loc10)
+(at person112 loc10)
+(at person113 loc10)
+(at person114 loc10)
+(at person115 loc10)
+(at person116 loc10)
+(at person117 loc10)
+(at person118 loc10)
+(at person119 loc10)
+(at person120 loc10)
+(at person121 loc10)
+(at person122 loc10)
+(at person123 loc10)
+(at person124 loc10)
+(at person125 loc10)
+(at person126 loc10)
+(at person127 loc10)
+(at person128 loc10)
+(at person129 loc10)
+(at person130 loc10)
+(at person131 loc10)
+(at person132 loc10)
+(at person133 loc10)
+(at person134 loc10)
+(at person135 loc10)
+(at person136 loc10)
+(at person137 loc10)
+(at person138 loc10)
+(at person139 loc10)
+(at person140 loc10)
+(at person141 loc10)
+(at person142 loc10)
+(at person143 loc10)
+(at person144 loc10)
+(at person145 loc10)
+(at person146 loc10)
+(at person147 loc10)
+(at person148 loc10)
+(at person149 loc10)
+(at person150 loc10)
+(at person151 loc10)
+(at person152 loc10)
+(at person153 loc10)
+(at person154 loc10)
+(at person155 loc10)
+(at person156 loc10)
+(at person157 loc10)
+(at person158 loc10)
+(at person159 loc10)
+(at person160 loc10)
+(at person161 loc10)
+(at person162 loc10)
+(at person163 loc10)
+(at person164 loc10)
+(at person165 loc10)
+(at person166 loc10)
+(at person167 loc10)
+(at person168 loc10)
+(at person169 loc10)
+(at person170 loc10)
+(at person171 loc10)
+(at person172 loc10)
+(at person173 loc10)
+(at person174 loc10)
+(at person175 loc10)
+(at person176 loc10)
+(at person177 loc10)
+(at person178 loc10)
+(at person179 loc10)
+(at person180 loc10)
+(at person181 loc10)
+(at person182 loc10)
+(at person183 loc10)
+(at person184 loc10)
+(at person185 loc10)
+(at person186 loc10)
+(at person187 loc10)
+(at person188 loc10)
+(at person189 loc10)
+(at person190 loc10)
+(at person191 loc10)
+(at person192 loc10)
+(at person193 loc10)
+(at person194 loc10)
+(at person195 loc10)
+(at person196 loc10)
+(at person197 loc10)
+(at person198 loc10)
+(at person199 loc10)
+(at person200 loc10)
+(at person201 loc10)
+(at person202 loc10)
+(at person203 loc10)
+(at person204 loc10)
+(at person205 loc10)
+(at person206 loc10)
+(at person207 loc10)
+(at person208 loc10)
+(at person209 loc10)
+(at person210 loc10)
+(at person211 loc10)
+(at person212 loc10)
+(at person213 loc10)
+(at person214 loc10)
+(at person215 loc10)
+(at person216 loc10)
+(at person217 loc10)
+(at person218 loc10)
+(at person219 loc10)
+(at person220 loc10)
+(at person221 loc10)
+(at person222 loc10)
+(at person223 loc10)
+(at person224 loc10)
+(at person225 loc10)
+(at person226 loc10)
+(at person227 loc10)
+(at person228 loc10)
+(at person229 loc10)
+(at person230 loc10)
+(at person231 loc10)
+(at person232 loc10)
+(at person233 loc10)
+(at person234 loc10)
+(at person235 loc10)
+(at person236 loc10)
+(at person237 loc10)
+(at person238 loc10)
+(at person239 loc10)
+(at person240 loc10)
+(at person241 loc10)
+(at person242 loc10)
+(at person243 loc10)
+(at person244 loc10)
+(at person245 loc10)
+(at person246 loc10)
+(at person247 loc10)
+(at person248 loc10)
+(at person249 loc10)
+(at person250 loc10)
+(at person251 loc10)
+(at person252 loc10)
+(at person253 loc10)
+(at person254 loc10)
+(at person255 loc10)
+(at person256 loc10)
+(at person257 loc10)
+(at person258 loc10)
+(at person259 loc10)
+(at person260 loc10)
+(at person261 loc10)
+(at person262 loc10)
+(at person263 loc10)
+(at person264 loc10)
+(at person265 loc10)
+(at person266 loc10)
+(at person267 loc10)
+(at person268 loc10)
+(at person269 loc10)
+(at person270 loc10)
+(at person271 loc10)
+(at person272 loc10)
+(at person273 loc10)
+(at person274 loc10)
+(at person275 loc10)
+(at person276 loc10)
+(at person277 loc10)
+(at person278 loc10)
+(at person279 loc10)
+(at person280 loc10)
+(at person281 loc10)
+(at person282 loc10)
+(at person283 loc10)
+(at person284 loc10)
+(at person285 loc10)
+(at person286 loc10)
+(at person287 loc10)
+(at person288 loc10)
+(at person289 loc10)
+(at person290 loc10)
+(at person291 loc10)
+(at person292 loc10)
+(at person293 loc10)
+(at person294 loc10)
+(at person295 loc10)
+(at person296 loc10)
+(at person297 loc10)
+(at person298 loc10)
+(at person299 loc10)
+(at person300 loc10)
+(at person301 loc10)
+(at person302 loc10)
+(at person303 loc10)
+(at person304 loc10)
+(at person305 loc10)
+(at person306 loc10)
+(at person307 loc10)
+(at person308 loc10)
+(at person309 loc10)
+(at person310 loc10)
+(at person311 loc10)
+(at person312 loc10)
+(at person313 loc10)
+(at person314 loc10)
+(at person315 loc10)
+(at person316 loc10)
+(at person317 loc10)
+(at person318 loc10)
+(at person319 loc10)
+(at person320 loc10)
+(at person321 loc10)
+(at person322 loc10)
+(at person323 loc10)
+(at person324 loc10)
+(at person325 loc10)
+(at person326 loc10)
+(at person327 loc10)
+(at person328 loc10)
+(at person329 loc10)
+(at person330 loc10)
+(at person331 loc10)
+(at person332 loc10)
+(at person333 loc10)
+(at person334 loc10)
+(at person335 loc10)
+(at person336 loc10)
+(at person337 loc10)
+(at person338 loc10)
+(at person339 loc10)
+(at person340 loc10)
+(at person341 loc10)
+(at person342 loc10)
+(at person343 loc10)
+(at person344 loc10)
+(at person345 loc10)
+(at person346 loc10)
+(at person347 loc10)
+(at person348 loc10)
+(at person349 loc10)
+(at person350 loc10)
+(at person351 loc10)
+(at person352 loc10)
+(at person353 loc10)
+(at person354 loc10)
+(at person355 loc10)
+(at person356 loc10)
+(at person357 loc10)
+(at person358 loc10)
+(at person359 loc10)
+(at person360 loc10)
+(at person361 loc10)
+(at person362 loc10)
+(at person363 loc10)
+(at person364 loc10)
+(at person365 loc10)
+(at person366 loc10)
+(at person367 loc10)
+(at person368 loc10)
+(at person369 loc10)
+(at person370 loc10)
+(at person371 loc10)
+(at person372 loc10)
+(at person373 loc10)
+(at person374 loc10)
+(at person375 loc10)
+(at person376 loc10)
+(at person377 loc10)
+(at person378 loc10)
+(at person379 loc10)
+(at person380 loc10)
+(at person381 loc10)
+(at person382 loc10)
+(at person383 loc10)
+(at person384 loc10)
+(at person385 loc10)
+(at person386 loc10)
+(at person387 loc10)
+(at person388 loc10)
+(at person389 loc10)
+(at person390 loc10)
+(at person391 loc10)
+(at person392 loc10)
+(at person393 loc10)
+(at person394 loc10)
+(at person395 loc10)
+(at person396 loc10)
+(at person397 loc10)
+(at person398 loc10)
+(at person399 loc10)
+(at person400 loc10)
+(at person401 loc10)
+(at person402 loc10)
+(at person403 loc10)
+(at person404 loc10)
+(at person405 loc10)
+(at person406 loc10)
+(at person407 loc10)
+(at person408 loc10)
+(at person409 loc10)
+(at person410 loc10)
+(at person411 loc10)
+(at person412 loc10)
+(at person413 loc10)
+(at person414 loc10)
+(at person415 loc10)
+(at person416 loc10)
+(at person417 loc10)
+(at person418 loc10)
+(at person419 loc10)
+(at person420 loc10)
+(at person421 loc10)
+(at person422 loc10)
+(at person423 loc10)
+(at person424 loc10)
+(at person425 loc10)
+(at person426 loc10)
+(at person427 loc10)
+(at person428 loc10)
+(at person429 loc10)
+(at person430 loc10)
+(at person431 loc10)
+(at person432 loc10)
+(at person433 loc10)
+(at person434 loc10)
+(at person435 loc10)
+(at person436 loc10)
+(at person437 loc10)
+(at person438 loc10)
+(at person439 loc10)
+(at person440 loc10)
+(at person441 loc10)
+(at person442 loc10)
+(at person443 loc10)
+(at person444 loc10)
+(at person445 loc10)
+(at person446 loc10)
+(at person447 loc10)
+(at person448 loc10)
+(at person449 loc10)
+(at person450 loc10)
+(at person451 loc10)
+(at person452 loc10)
+(at person453 loc10)
+(at person454 loc10)
+(at person455 loc10)
+(at person456 loc10)
+(at person457 loc10)
+(at person458 loc10)
+(at person459 loc10)
+(at person460 loc10)
+(at person461 loc10)
+(at person462 loc10)
+(at person463 loc10)
+(at person464 loc10)
+(at person465 loc10)
+(at person466 loc10)
+(at person467 loc10)
+(at person468 loc10)
+(at person469 loc10)
+(at person470 loc10)
+(at person471 loc10)
+(at person472 loc10)
+(at person473 loc10)
+(at person474 loc10)
+(at person475 loc10)
+(at person476 loc10)
+(at person477 loc10)
+(at person478 loc10)
+(at person479 loc10)
+(at person480 loc10)
+(at person481 loc10)
+(at person482 loc10)
+(at person483 loc10)
+(at person484 loc10)
+(at person485 loc10)
+(at person486 loc10)
+(at person487 loc10)
+(at person488 loc10)
+(at person489 loc10)
+(at person490 loc10)
+(at person491 loc10)
+(at person492 loc10)
+(at person493 loc10)
+(at person494 loc10)
+(at person495 loc10)
+(at person496 loc10)
+(at person497 loc10)
+(at person498 loc10)
+(at person499 loc10)
+(at person500 loc10)
+)
+(:goal (and
+
+(at uav1 depot)
+(person-got-help person155 food)
+(person-got-help person192 medicine)
+(person-got-help person256 medicine)
+(person-got-help person496 food)
+	))
+)
