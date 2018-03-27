@@ -1,6 +1,6 @@
 (define (problem single_person_single_crate)
 	
-  (:domain lab1.1)
+  (:domain lab11)
 
   (:objects
     c 			- crate
