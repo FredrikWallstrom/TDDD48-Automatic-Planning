@@ -23,15 +23,15 @@
   ) 
 
   (:action load-crate-on-carrier
-    :parameters (?h - helicopter ?crate - crate ?c - carrier ?from ?to - num ?l - location)
+    :parameters (?h - helicopter ?crate - crate ?c - carrier ?from - num ?to - num ?l - location)
     :precondition (and (helicopter-carries ?h ?crate)
                   (carrier-carries ?c ?from)
                   (next ?from ?to)
                   (at ?c ?l)
                   (at ?h ?l))
     :effect (and (helicopter-empty ?h)
-                 not(helicopter-carries ?h ?crate)
-                 not(carrier-carries ?c ?from)
+                 (not(helicopter-carries ?h ?crate))
+                 (not(carrier-carries ?c ?from))
                  (carrier-carries ?c ?to)
                  )
   )
@@ -39,25 +39,27 @@
   (:action fly-carrier
     :parameters (?h - helicopter ?c - carrier ?from - location ?to - location) 
     :precondition (and (at ?h ?from)
-                  (at ?c ?from))
+                  (at ?c ?from)
+				  (helicopter-empty ?h))
     :effect (and (not(at ?h ?from)) 
             (at ?h ?to)
-            not(at ?c ?from)
+            (not(at ?c ?from))
             (at ?c ?to))
   )
 
   (:action take-crate-from-carrier
-    :parameters (?h - helicopter ?crate - crate ?c - carrier ?from ?to - num ?l - location)
+    :parameters (?h - helicopter ?crate - crate ?c - carrier ?from - num ?to - num ?l - location)
     :precondition (and (helicopter-empty ?h)
                   (at ?c ?l)
                   (at ?h ?l)
                   (carrier-carries ?c ?to)
-                  (next ?to ?from)
+                  (next ?from ?to)
                   )
     :effect (and (not (carrier-carries ?c ?to)) 
                       (carrier-carries ?c ?from)
                       (helicopter-carries ?h ?crate)
-                      not (helicopter-empty ?h))
+                      (not (helicopter-empty ?h))
+						)
   )
 
   ;; Action pick-up-crate will pick up a crate at specific location.
@@ -78,12 +80,14 @@
   ;; Action fly will transport the helicopter from location to another location.
   ;; Precondition is that the helicopter need to be at from location.
   ;; Effect is that the helicopter end up in location to and leave location from.
-  (:action fly
+	(:action fly
     :parameters (?h - helicopter ?from - location ?to - location) 
     :precondition (at ?h ?from)
     :effect (and (not(at ?h ?from)) 
     				(at ?h ?to))
   )
+
+
 
   ;; Action deliver-crate will deliver a crate to a person.
   ;; Precondition is that the helicopter and person need to be at the location.
