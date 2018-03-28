@@ -87,8 +87,6 @@
     				(at ?h ?to))
   )
 
-
-
   ;; Action deliver-crate will deliver a crate to a person.
   ;; Precondition is that the helicopter and person need to be at the location.
   ;; Also the helicopter need to carry the crate and the crate need to have right content.

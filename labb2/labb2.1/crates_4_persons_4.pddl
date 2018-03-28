@@ -39,7 +39,9 @@
   (:goal
   	(and (person-got-help p1 medicin)
   	(person-got-help p2 food)
-)
+	(person-got-help p3 food)
+	(person-got-help p4 medicin)
+	(at h depot))
   )
 
 )
