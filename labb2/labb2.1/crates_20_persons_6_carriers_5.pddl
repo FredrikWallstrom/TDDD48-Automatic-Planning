@@ -1,4 +1,4 @@
-(define (problem crates_4_persons_4)
+(define (problem crates_20_persons_6_carriers_5)
 	
   (:domain lab21)
 
