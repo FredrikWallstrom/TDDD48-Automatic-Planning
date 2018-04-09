@@ -3,8 +3,8 @@
   (:requirements 
     :typing
     :strips
+	:action-costs
     :equality
-    :action-costs
   )
 
   (:types
@@ -38,7 +38,7 @@
                  (not(helicopter-carries ?h ?crate))
                  (not(carrier-carries ?c ?from))
                  (carrier-carries ?c ?to)
-                 (increase (total-cost) 10)
+                 (increase (total-cost) 5)
                  )
   )
 
@@ -67,7 +67,7 @@
                       (carrier-carries ?c ?from)
                       (helicopter-carries ?h ?crate)
                       (not (helicopter-empty ?h))
-                      (increase (total-cost) 10)
+                      (increase (total-cost) 5)
 						)
   )
 
@@ -83,7 +83,7 @@
     :effect (and (not(at ?c ?l))
     			(helicopter-carries ?h ?c)
           (not(helicopter-empty ?h))
-          (increase (total-cost) 10)
+          (increase (total-cost) 5)
           ) 
 
   )
@@ -113,7 +113,7 @@
     :effect (and (person-got-help ?p ?co)
     				(not(helicopter-carries ?h ?c))
             (helicopter-empty ?h)
-            (increase (total-cost) 10)
+            (increase (total-cost) 5)
             )
   )
 )
