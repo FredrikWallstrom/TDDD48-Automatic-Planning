@@ -6,7 +6,7 @@
     n0 n1 n2 n3 n4 - num
     c1 c2 c3 c4 c5 c6 c7 c8 c9 c10 c11 c12 c13 c14 c15 c16 c17 c18 c19 c20 	- crate
     p1 p2 p3 p4 p5 p6      - person
-    depot l1 l2 l3 l4 l5 l6 l7 l8 l9 l10 - location
+    depot loc1 loc2 loc3 loc4 loc5 loc6 loc7 loc8 loc9 loc10 - location
     medicin 	- content
     food		- content
     h 			- helicopter
@@ -15,6 +15,7 @@
 
   (:init
     (= (total-cost) 0)
+	
     (= (fly-cost loc1 loc1) 0) 
     (= (fly-cost loc1 loc2) 10)
     (= (fly-cost loc1 loc3) 20) 
