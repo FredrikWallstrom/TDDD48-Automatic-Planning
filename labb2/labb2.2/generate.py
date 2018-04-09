@@ -256,6 +256,16 @@ for x in uav:
 	f.write("\n")
 	f.write("(helicopter-empty " + x + ")")
 
+f.write("\n");
+f.write("(= (total-cost) 0)")
+f.write("\n");
+
+for x in range(options.locations):
+	for y in range(options.locations):
+		f_cost = flight_cost(x, y)
+		f.write("(= (fly-cost " + location[x] + " " + location[y] + ") " + str(f_cost) + ")")
+		f.write("\n")
+
 for x in range(options.crates):
 	rand_content = random.randint(0,len(crate_contents)-1)
 	f.write("\n");
@@ -296,4 +306,7 @@ for x in range(options.persons):
 			# with this specific content
 
 f.write("\t))\n")
+f.write("\n");
+f.write("(:metric minimize (total-cost))")
+f.write("\n");
 f.write(")\n")
