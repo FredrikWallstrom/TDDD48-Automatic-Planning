@@ -1,15 +1,16 @@
-(define (domain lab21)
+(define (domain lab23)
 
   (:requirements 
     :typing
     :strips
+    :action-costs
     :equality
   )
 
   (:types
     num
-    thing location content       - object
-    crate person helicopter carrier      - thing
+    thing location content - object
+    crate person helicopter carrier - thing
   )
 
   (:predicates	
@@ -22,6 +23,10 @@
     (helicopter-empty ?h - helicopter) ; Helicopter h is empty.                    
   )
 
+  ;; Functions that represent the total cost of every action taken and the flight cost between two destinations.
+  (:functions (total-cost) - number
+              (fly-cost ?from ?to - location) - number
+  )
 
   ;; Action load-crate-on-carrier will place a crate from the helicopter to a carrier.
   ;; Precondition is that the helicopter need to carry the crate.
@@ -33,12 +38,12 @@
                   (carrier-carries ?c ?from)
                   (next ?from ?to)
                   (at ?c ?l)
-                  (at ?h ?l)
-		  )
+                  (at ?h ?l))
     :effect (and (helicopter-empty ?h)
                  (not(helicopter-carries ?h ?crate))
                  (not(carrier-carries ?c ?from))
                  (carrier-carries ?c ?to)
+                 (increase (total-cost) 5)
                  )
   )
 
@@ -55,7 +60,8 @@
             (at ?h ?to)
             (not(at ?c ?from))
             (at ?c ?to)
-	    )
+            (increase (total-cost) (fly-cost ?from ?to))
+            )
   )
 
   ;; Action take-crate-from-carrier will unload a crate from the carrier to the helicopter.
@@ -74,6 +80,7 @@
                       (carrier-carries ?c ?from)
                       (helicopter-carries ?h ?crate)
                       (not (helicopter-empty ?h))
+                      (increase (total-cost) 5)
 		      )
   )
 
@@ -90,6 +97,7 @@
     :effect (and (not(at ?c ?l))
 		 (helicopter-carries ?h ?c)
 		 (not(helicopter-empty ?h))
+		 (increase (total-cost) 5)
 		 ) 
   )
 
@@ -101,7 +109,8 @@
     :precondition (at ?h ?from)
     :effect (and (not(at ?h ?from)) 
 		 (at ?h ?to)
-		 )
+		 (increase (total-cost) (fly-cost ?from ?to))
+            )
   )
 
   ;; Action deliver-crate will deliver a crate to a person.
@@ -118,6 +127,7 @@
     :effect (and (person-got-help ?p ?co)
 		 (not(helicopter-carries ?h ?c))
 		 (helicopter-empty ?h)
+		 (increase (total-cost) 5)
 		 )
   )
 )
