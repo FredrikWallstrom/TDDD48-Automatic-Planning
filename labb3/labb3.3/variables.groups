@@ -1,0 +1,28 @@
+var0
+   0: Atom at(<r1>, <loc1>)
+   1: <none of those>
+var1
+   0: Atom rover-free(<r1>)
+   1: <none of those>
+var2
+   0: Atom sent(<d1>)
+   1: <none of those>
+var3
+   0: Atom sent(<d2>)
+   1: <none of those>
+var4
+   0: Atom sent(<d3>)
+   1: <none of those>
+var5
+   0: Atom sent(<d4>)
+   1: <none of those>
+var6
+   0: Atom sent(<d5>)
+   1: <none of those>
+var7
+   0: Atom sent(<d6>)
+   1: <none of those>
+var8
+   -2: PNE derived!1()
+var9
+   -2: PNE derived!2()

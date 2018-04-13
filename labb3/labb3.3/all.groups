@@ -1,0 +1,36 @@
+begin_groups
+11
+group
+1
+0 0 at 2 <r1> <loc1> 
+group
+1
+0 0 at 2 <r1> <loc1> 
+group
+1
+0 0 at 2 <r1> <loc1> 
+group
+1
+1 0 rover-free 1 <r1> 
+group
+1
+1 0 rover-free 1 <r1> 
+group
+1
+6 0 sent 1 <d5> 
+group
+1
+2 0 sent 1 <d1> 
+group
+1
+5 0 sent 1 <d4> 
+group
+1
+4 0 sent 1 <d3> 
+group
+1
+7 0 sent 1 <d6> 
+group
+1
+3 0 sent 1 <d2> 
+end_groups
