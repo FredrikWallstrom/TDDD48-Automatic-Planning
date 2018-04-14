@@ -1,6 +1,6 @@
 (define (problem uavs_4_crates_4_persons_1)
 	
-  (:domain lab31)
+  (:domain lab34)
 
   (:objects
     c1 c2 c3 c4 - crate
