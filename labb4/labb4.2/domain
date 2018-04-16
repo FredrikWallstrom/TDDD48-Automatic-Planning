@@ -1,0 +1,125 @@
+(defdomain domain
+  (
+    ;; Primitive tasks
+    (:operator (!pick-up-crate ?helicopter ?crate ?location)
+               	;; Precondition
+      		   	((and (
+      		   		(at ?helicopter ?location)
+		      		(at ?crate ?location)
+		       		(helicopter-empty ?helicopter))
+		       	))
+      			;; Delete effects
+      			((and (
+      				(at ?crate ?location)
+      				(helicopter-empty ?helicopter))
+      			))
+      			;; Add effects
+      			((helicopter-carries ?helicopter ?crate))
+
+    (:operator (!fly ?helicopter ?from ?to)
+               	;; Precondition
+      		   	((at ?helicopter ?from))
+      			;; Delete effects
+      			((at ?helicopter ?from)
+      			;; Add effects
+      			((at ?helicopter ?to))
+
+    (:operator (!deliver-crate ?helicopter ?crate ?content ?location ?person)
+               	;; Precondition
+      		   	((and (
+      		   		(at ?helicopter ?location)
+		      		(crate-content ?crate ?content)
+		       		(helicopter-carries ?helicopter ?crate))
+		       	))
+      			;; Delete effects
+      			((and (
+					(helicopter-carries ?helicopter ?crate)
+					(needs ?person ?content))
+      			))
+      			;; Add effects
+      			((helicopter-empty ?helicopter))
+
+    ;; The method for the top-layer task
+    (:method (deliver-all)
+    		;; Preconditionlist_1
+    		(
+    			(needs ?person ?content)
+    		)
+	 		;; Task-list_1
+	 		(
+	 			(pick-up-content ?person ?content)
+	 			(deliver-content ?person ?content)
+	 			(deliver-all)
+	 		)
+	 		()
+	 		()
+	)
+
+	(:method (pick-up-content ?person ?content)
+    		;; Preconditionlist_1
+    		;; Helicopter are at the right location
+    		(
+    			(needs ?person ?content)
+    			(crate-content ?crate ?content)
+    			(helicopter-empty ?helicopter)
+    			(at ?helicopter ?from)
+    			(at ?crate ?from)
+    		)
+	 		;; Task-list_1
+	 		(
+	 			(!pick-up-crate ?helicopter ?crate ?from)
+	 		)
+	 		;; Preconditionlist_2
+    		;; Helicopter are at the wrong location
+    		(
+    			(needs ?person ?content)
+    			(crate-content ?crate ?content)
+    			(helicopter-empty ?helicopter)
+    			(at ?helicopter ?from)
+    			(at ?crate ?to)
+    		)
+	 		;; Task-list_2
+	 		(
+	 			(!fly ?helicopter ?from ?to)
+	 			(pick-up-content ?person ?content)
+	 		)
+	 		()
+	 		()
+	)
+
+	;; The method is for deliver content to a injured person
+	;; We know that the helicopter is carrying the content already (did that task before)
+    (:method (deliver-content ?person ?content)
+    		;; Preconditionlist_1
+    		;; Helicopter carries the crate and are at the right location
+    		(
+    			(needs ?person ?content)
+    			(crate-content ?crate ?content)
+    			(helicopter-carries ?helicopter ?crate)
+    			(at ?helicopter ?to)
+    			(at ?person ?to)
+    		)
+	 		;; Task-list_1
+	 		(
+	 			(!deliver-crate ?helicopter ?crate ?content ?to ?person)
+	 		)
+
+	 		;; Preconditionlist_2
+    		;; Helicopter carries the crate but are at wrong location
+    		(
+    			(needs ?person ?content)
+    			(crate-content ?crate ?content)
+    			(helicopter-carries ?helicopter ?crate)
+    			(at ?helicopter ?from)
+    			(at ?person ?to)
+    		)
+	 		;; Task-list_2
+	 		(
+	 			(!fly ?helicopter ?from ?to)
+	 			(deliver ?person ?content)
+	 		)
+	 		()
+	 		()
+	)
+  )
+)

@@ -1,0 +1,43 @@
+(defproblem problem domain
+ (
+  (person p1)
+  (person p2)
+  (person p3)
+  (person p4)
+  (crate c1)
+  (crate c2)
+  (crate c3)
+  (crate c4)
+  (content medicine)
+  (content food)
+  (location depot)
+  (location l1)
+  (helicopter h1)
+
+  (at h1 depot)
+  (at p1 l1)
+  (at p2 l1)
+  (at p3 l1)
+  (at p4 l1)
+  (at c1 depot)
+  (at c2 depot)
+  (at c3 depot)
+  (at c4 depot)
+  (crate-content c1 food)
+  (crate-content c2 food)
+  (crate-content c3 medicine)
+  (crate-content c4 medicine)
+
+  (needs p1 medicine)
+  (needs p2 medicine)
+  (needs p3 food)
+  (needs p4 food)
+ )
+ (
+  (achieve-goals
+   (
+    (deliver-all)
+   )
+  )
+ )
+)
