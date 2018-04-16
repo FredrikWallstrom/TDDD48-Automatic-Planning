@@ -1,0 +1,29 @@
+;; -*- mode: shop; -*-
+(defproblem problem domain
+( ;; Init
+ (person p1)
+ (location depot)
+ (location l1)
+ (content medicine)
+ (content food)
+ (crate c1)
+ (helicopter h1)
+
+ (at c1 depot)
+ (at h1 depot)
+ (at p1 l1)
+
+ (crate-content c1 food)
+
+ (needs p1 food)
+
+ (helicopter-empty h1)
+)
+
+(
+ ;; Goal
+ (deliver-all)
+)
+
+)
+

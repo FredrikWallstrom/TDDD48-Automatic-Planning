@@ -1,3 +1,4 @@
+;; -*- mode: shop; -*-
 (defproblem problem domain
  (
   (person p1)
@@ -27,17 +28,15 @@
   (crate-content c2 food)
   (crate-content c3 medicine)
   (crate-content c4 medicine)
+  (helicopter-empty h1)
 
   (needs p1 medicine)
   (needs p2 medicine)
   (needs p3 food)
   (needs p4 food)
  )
+ ;; Goal
  (
-  (achieve-goals
-   (
-    (deliver-all)
-   )
-  )
+  (deliver-all)
  )
 )
