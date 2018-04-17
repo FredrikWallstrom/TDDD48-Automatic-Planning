@@ -1,0 +1,386 @@
+;; -*- mode: shop; -*-
+(defdomain domain
+  (
+
+    ;; Primitive task
+    (:operator (!load-content-on-carrier ?helicopter ?content ?carrier ?location)
+      ;; Precondition
+      (
+       (helicopter-carries ?helicopter ?content)
+       (carrier-carries ?carrier ?number)
+       (carrier-space ?carrier ?space)
+       (at ?helicopter ?location)
+       (at ?carrier ?location)
+      )
+      ;; Delete effects
+      (
+       (helicopter-carries ?helicopter ?content)
+       (carrier-carries ?carrier ?number)
+       (carrier-space ?carrier ?space)
+      )
+      ;; Add effects
+      (
+       (helicopter-empty ?helicopter)
+       (carrier-carries ?carrier (call + ?number 1))
+       (carrier-space ?carrier (call - ?space 1))
+      )
+    )
+
+
+
+    ;; Primitive task
+    (:operator (!fly-carrier ?helicopter ?carrier ?from ?to)
+      ;; Precondition
+      (
+       (at ?helicopter ?from)
+       (at ?carrier ?from)
+       (helicopter-empty ?helicopter)
+       (carriers-left ?carrLeft)
+      )
+      ;; Delete effects
+      (
+       (carriers-left ?carrLeft)
+       (at ?helicopter ?from)
+       (at ?carrier ?from)
+      )
+      ;; Add effects
+      (
+       (carriers-left (call - ?carrLeft 1))
+       (at ?helicopter ?to)
+       (at ?carrier ?to)
+      )
+    )
+
+
+    
+    ;; Primitive task   
+    (:operator (!take-content-from-carrier ?helicopter ?content ?carrier ?location)
+      ;; Precondition
+      (
+       (carrier-carries ?carrier ?number)
+       (carrier-space ?carrier ?space)
+       (at ?helicopter ?location)
+       (at ?carrier ?location)
+       (helicopter-empty ?helicopter)
+      )
+      ;; Delete effects
+      (
+       (helicopter-empty ?helicopter)
+       (carrier-carries ?carrier ?number)
+       (carrier-space ?carrier ?space)
+      )
+      ;; Add effects
+      (
+       (helicopter-carries ?helicopter ?content)
+       (carrier-carries ?carrier (call - ?number 1))
+       (carrier-space ?carrier (call + ?space 1))
+      )
+    )
+
+
+
+    ;; Primitive task
+    (:operator (!pick-up-content ?helicopter ?content ?location)
+      ;; Precondition
+      (
+       (at ?helicopter ?location)
+       (remaining-content ?content ?location ?remainingContent)
+       (helicopter-empty ?helicopter)
+       (call > ?remainingContent 0)
+      )
+      ;; Delete effects
+      (
+       (helicopter-empty ?helicopter)
+       (remaining-content ?content ?location ?remainingContent)
+      )
+      ;; Add effects
+      (
+       (remaining-content ?content ?location (call - ?remainingContent 1))
+       (helicopter-carries ?helicopter ?content)
+      )
+    )
+
+    
+
+    ;; Primitive task
+    (:operator (!fly ?helicopter ?from ?to)
+      ;; Precondition
+      (
+       (at ?helicopter ?from)
+      )
+      ;; Delete effects
+      (
+       (at ?helicopter ?from)
+      )
+      ;; Add effects
+      (
+       (at ?helicopter ?to)
+      )
+    )
+
+    
+
+    ;; Primitive task
+    (:operator (!deliver-content ?helicopter ?content ?location)
+      ;; Precondition
+      (
+       (at ?helicopter ?location)
+       (helicopter-carries ?helicopter ?content)
+       (needs ?location ?content ?number)
+      )
+      ;; Delete effects
+      (
+       (helicopter-carries ?helicopter ?content)
+       (needs ?location ?content ?number)
+      )
+      ;; Add effects
+      (
+       (needs ?location ?content (call - ?number 1))
+       (helicopter-empty ?helicopter)
+      )
+    )
+
+
+
+    
+
+    ;; The method for the top-layer task
+    (:method (deliver-all)
+      ;; Preconditionlist_1
+      ;; Check if there is any needs for contents on any location
+      (
+       (needs ?location ?content ?number)
+       (call > ?number 0)
+      )
+      ;; Task-list_1
+      (
+       (decide-transport-method ?location ?content ?number)
+       (deliver-all)
+      )
+      ()
+      ()
+    )
+
+
+
+    ;; Method that decide if we gonna use carrier or not
+    (:method (decide-transport-method ?location ?content ?number)
+      ;; Preconditionlist_1
+      ;; Single box left to deliver to location, we deliver directly
+      (
+       (needs ?location ?content ?number)
+       (call = ?number 1)
+      )
+      ;; Task-list_1
+      (
+       (deliver-content ?location ?content)
+      )
+
+      ;; Preconditionlist_2
+      ;; Check if there are any carriers left
+      (
+       (carriers-left ?carrLeft)
+       (call = ?carrLeft 0)
+      )
+      ;; Task-list_2
+      (
+       (deliver-content ?location ?content)
+      )
+
+      ;; Preconditionlist_3
+      ;; More boxes left to deliver to location, we deliver with carrier
+      ;; We cant mix contents on the carrier
+      (
+       (needs ?location ?content ?number)
+       (carrier-space ?carrier ?space)
+       (call > ?number 1)
+       (call > ?space 0)
+      )
+      ;; Task-list_3
+      (
+       (load-carrier ?location ?content ?number ?carrier)
+       (deliver-carrier ?location ?carrier ?content)
+      )
+      ()
+      ()
+    )
+
+    
+
+    ;; Method that load the carrier with a specific content
+    (:method (load-carrier ?location ?content ?number ?carrier)
+      ;; Preconditionlist_1
+      ;; Base case, check if the carrier is loaded enough to satisfied location needs
+      (
+       (needs ?location ?content ?number)
+       (carrier-carries ?carrier ?number)
+      )
+      ;; Task-list_1
+      ()
+      
+      ;; Preconditionlist_2
+      ;; Base case, check if the carrier cant be loaded any more
+      (
+       (carrier-space ?carrier ?space)
+       (call = ?space 0)
+      )
+      ;; Task-list_2
+      ()
+      
+      ;; Preconditionlist_3
+      ;; Check if we need to pick up content
+      (
+       (helicopter-empty ?helicopter)
+      )
+      ;; Task-list_3
+      (
+       (pick-up-content ?content)
+       (load-carrier ?location ?content ?number ?carrier)
+      )
+      
+      ;; Preconditionlist_4
+      ;; Helicopter is carry a content and we got room to load the content on the carrier.
+      (
+       (helicopter-carries ?helicopter ?content)
+       (at ?helicopter ?dep)
+       (at ?carrier ?dep)
+      )
+      ;; Task-list_4
+      (
+       (!load-content-on-carrier ?helicopter ?content ?carrier ?dep)
+       (load-carrier ?location ?content ?number ?carrier)
+      )
+      ()
+      ()
+    )
+
+    
+    ;; Method to pick up a specific content at the depot
+    (:method (pick-up-content ?content)
+      ;; Preconditionlist_1
+      ;; Helicopter are at the right location (depot)
+      (
+       (helicopter-empty ?helicopter)
+       (remaining-content ?content ?dep ?remCont)
+       (call > ?remCont 0)
+       (at ?helicopter ?dep)
+      )
+      ;; Task-list_1
+      (
+       (!pick-up-content ?helicopter ?content ?dep)
+      )
+      
+      ;; Preconditionlist_2
+      ;; Helicopter are at the wrong location
+      (
+       (helicopter-empty ?helicopter)
+       (remaining-content ?content ?dep ?remCont)
+       (call > ?remCont 0)
+       (at ?helicopter ?from)
+      )
+      ;; Task-list_2
+      (
+       (!fly ?helicopter ?from ?dep)
+       (pick-up-content ?content)
+      )
+      ()
+      ()
+    )
+
+
+
+    ;; Method to deliver the carrier to location
+    (:method (deliver-carrier ?location ?carrier ?content)
+      ;; Preconditionlist_1
+      ;; Base case, check if there is no more content on the carrier to deliver
+      (
+       (carrier-carries ?carrier ?carrCarr)
+       (call = ?carrCarr 0)
+      )
+      ;; Task-list_1
+      ()
+      
+      ;; Preconditionlist_2
+      ;; Base case, check if the location is satisfied
+      (
+       (needs ?location ?content ?number)
+       (call = ?number 0)
+      )
+      ;; Task-list_2
+      ()
+
+      ;; Preconditionlist_3
+      ;; The helicopter and the carrier is at the right place, deliver the content
+      (
+       (helicopter-empty ?helicopter)
+       (at ?helicopter ?location)
+       (at ?carrier ?location)
+       (carrier-carries ?carrier ?carrCarr)
+       (call > ?carrCarr 0)
+      )
+      ;; Task-list_3
+      (
+       (!take-content-from-carrier ?helicopter ?content ?carrier ?location)
+       (!deliver-content ?helicopter ?content ?location)
+       (deliver-carrier ?location ?carrier ?content)
+      )
+      
+      ;; Preconditionlist_4
+      ;; The helicopter and the carrier is at wrong place, fly the carrier to the right place
+      (
+       (helicopter-empty ?helicopter)
+       (at ?helicopter ?from)
+       (at ?carrier ?from)
+      )
+      ;; Task-list_4
+      (
+       (!fly-carrier ?helicopter ?carrier ?from ?location)
+       (deliver-carrier ?location ?carrier ?content)
+      )
+      ()
+      ()
+    )
+
+
+
+    
+    ;; Method that deliver content without carrier
+    (:method (deliver-content ?location ?content)
+      ;; Preconditionlist_1
+      ;; Helicopter empty, pickup content
+      (
+       (helicopter-empty ?helicopter)
+      )
+      ;; Task-list_1
+      (
+       (pick-up-content ?content)
+       (deliver-content ?location ?content)
+      )
+      
+      ;; Preconditionlist_2
+      ;; Helicopter carries the content and are at the right location
+      (
+       (helicopter-carries ?helicopter ?content)
+       (at ?helicopter ?location)
+      )
+      ;; Task-list_2
+      (
+       (!deliver-content ?helicopter ?content ?location)
+      )
+      
+      ;; Preconditionlist_3
+      ;; Helicopter carries the content but are at wrong location
+      (
+       (helicopter-carries ?helicopter ?content)
+       (at ?helicopter ?from)
+      )
+      ;; Task-list_3
+      (
+       (!fly ?helicopter ?from ?location)
+       (deliver-content ?location ?content)
+      )
+      ()
+      ()
+    )
+  )
+)

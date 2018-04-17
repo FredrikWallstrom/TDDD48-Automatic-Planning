@@ -1,0 +1,93 @@
+;; -*- mode: shop; -*-
+(defproblem problem domain
+( ;; Init
+
+ (content medicine)
+ (content food)
+
+ (location depot)
+ (remaining-content food depot 50)
+ (remaining-content medicine depot 50)
+
+ (location l1)
+ (location l2)
+ (location l3)
+ (location l4)
+ (location l5)
+ (location l6)
+ (location l7)
+ (location l8)
+ (location l9)
+ (location l10)
+
+ (needs l1 food 17)
+ (needs l5 medicine 3)
+ (needs l6 medicine 3)
+ (needs l7 medicine 3)
+ (needs l8 medicine 3)
+ (needs l9 medicine 3)
+
+
+ (carriers-left 10)
+ 
+ (helicopter h1)
+ (at h1 depot)
+ (helicopter-empty h1)
+
+ (carrier c1)
+ (carrier-carries c1 0)
+ (carrier-space c1 4)
+ (at c1 depot)
+
+ (carrier c2)
+ (carrier-carries c2 0)
+ (carrier-space c2 4)
+ (at c2 depot)
+
+ (carrier c3)
+ (carrier-carries c3 0)
+ (carrier-space c3 4)
+ (at c3 depot)
+
+ (carrier c4)
+ (carrier-carries c4 0)
+ (carrier-space c4 4)
+ (at c4 depot)
+
+ (carrier c5)
+ (carrier-carries c5 0)
+ (carrier-space c5 4)
+ (at c5 depot)
+
+ (carrier c6)
+ (carrier-carries c6 0)
+ (carrier-space c6 4)
+ (at c6 depot)
+
+ (carrier c7)
+ (carrier-carries c7 0)
+ (carrier-space c7 4)
+ (at c7 depot)
+
+ (carrier c8)
+ (carrier-carries c8 0)
+ (carrier-space c8 4)
+ (at c8 depot)
+
+ (carrier c9)
+ (carrier-carries c9 0)
+ (carrier-space c9 4)
+ (at c9 depot)
+
+ (carrier c10)
+ (carrier-carries c10 0)
+ (carrier-space c10 4)
+ (at c10 depot)
+)
+
+(
+ ;; Goal
+ (deliver-all)
+)
+
+)
